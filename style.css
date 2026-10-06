@@ -2,8 +2,36 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+  background-color: rgb(183, 247, 255)
 }
 
 .comida-container {
-  /* Estilos para el contenedor de la lista */
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 2vw;
+  justify-content: center;
+  margin-top: 1vw;
+
+  .card {
+    width: 17vw;
+    aspect-ratio: 3/2;
+    background-color: rgb(227, 252, 255);
+    padding: 5px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+
+    .categoria {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: rgb(0, 153, 173);
+      font-weight: 900;
+    }
+  }
 }

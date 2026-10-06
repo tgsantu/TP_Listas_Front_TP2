@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comidas Argentinas</title> 
     <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,9 +19,35 @@
     </main>     
 
     <section class="addFood">
-      <!-- Para el form para agregar comida -->
+      <form id="agregarComida">
+        <div class="con">
+          <label>Nombre de la comida</label>
+          <input type="text" placeholder="Nombre de la comida" name="nombre" id="nombre" required>
+        </div>
+
+        <div class="con">
+          <label>Categoría</label>
+          <input type="text" placeholder="Categoría" id="categoria">
+        </div>
+
+        <div class="con">
+          <label>Provincia</label>
+          <input type="text" placeholder="Provincia" id="provincia">
+        </div>
+
+        <div class="con">
+          <label>ingredientas</label>
+          <input type="text" placeholder="ingedientes" id="ingedientes">
+        </div>
+
+        <div class="con">
+          <button type="submit" class="submit">Agregar Comida</button>
+        </div>
+
+
+      </form>
     </section>
 
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./main.js" defer></script>
 </body>
 </html>
