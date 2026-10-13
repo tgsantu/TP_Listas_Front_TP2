@@ -41,6 +41,10 @@
     .ingredientes {
       margin-left: 2vw;
     }
+
+    .provincia {
+      font-weight: 600;
+    }
   }
 }
 

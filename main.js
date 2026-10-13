@@ -6,8 +6,8 @@ fetch('./data/comidas.json')          // Ruta al archivo JSON
   .then(data => {                     // Aquí tienes acceso al JSON en formato de objeto JS
     console.log('Comidas cargadas desde JSON:');
     console.log(data);    
-    comidas = data; 
-    mostrarComidas(comidas);                  // Asignar el JSON a la variable comidas
+    comidas = data;                   // Asignar el JSON a la variable comidas
+    mostrarComidas(comidas);
   })
   .catch(error => {                   // Manejo de errores al leer el archivo JSON
     console.error('Error al leer el archivo JSON:', error);
@@ -17,10 +17,10 @@ let comidas = [];
 
 const container = document.getElementById('comidaContainer');
 
-function mostrarComidas(){
+function mostrarComidas(lista){
 
-  container.innerHTML =""
-  comidas.forEach(comida => {
+  container.innerHTML = "";
+  lista.forEach(comida => {
     container.innerHTML +=
     `
     <article class="card">
@@ -29,13 +29,13 @@ function mostrarComidas(){
     <p class="provincia">${comida.provincia}</p>
     <ul class="ingredientes">
       ${comida.ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).join('')}
-    <ul/>
+    </ul>
     </article>
     `
   })
 }
 
-const formComidaNueva = document.getElementById('agregarComida')
+const formComidaNueva = document.getElementById('agregarComida');
 
 formComidaNueva.addEventListener("submit", (e) =>{
   //alert('Comida nueva recibida: '+ e.target.nombre.value)
@@ -44,11 +44,25 @@ formComidaNueva.addEventListener("submit", (e) =>{
     nombre: e.target.nombre.value,
     categoria: e.target.categoria.value,
     provincia: e.target.provincia.value,
-    ingrediente: event.target.ingredientes.value.split(",")
+    ingredientes: e.target.ingredientes.value.split(",")
   }
 
-  comidas.push(nuevacomida)
-  mostrarComidas()
+  comidas.push(nuevacomida);
+  mostrarComidas(comidas);
 
-  console.log(comidas)
-})
+  console.log(comidas);
+});
+
+const filtroCategoria = document.getElementById("filtroCategoria")
+const filtroProvincia = document.getElementById("filtroProvincia")
+
+filtroCategoria.addEventListener("change", filtrar)
+filtroProvincia.addEventListener("change", filtrar)
+
+function filtrar() {
+  const comidasFiltradas = comidas.filter(comida => {
+    return comida.categoria.includes(filtroCategoria.value)
+    && comida.provincia.includes(filtroProvincia.value)
+  })
+  mostrarComidas(comidasFiltradas);
+}
