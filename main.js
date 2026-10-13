@@ -1,7 +1,7 @@
 /*
     Cargar comidas en memoria desde el JSON
 */
-fetch('./data/comidas.json')          // Ruta al archivo JSON
+fetch('./data/comidas-extended.json')          // Ruta al archivo JSON
   .then(response => response.json())  // Convertir la respuesta en JSON
   .then(data => {                     // Aquí tienes acceso al JSON en formato de objeto JS
     console.log('Comidas cargadas desde JSON:');
@@ -65,4 +65,19 @@ function filtrar() {
     && comida.provincia.includes(filtroProvincia.value)
   })
   mostrarComidas(comidasFiltradas);
+}
+
+const buscador = document.getElementById("buscador")
+buscador.addEventListener("input" , buscar)
+
+function buscar() {
+  const texto = buscador.value.toLowerCase()
+
+  const comidasFiltradas = comidas.filter(comida => {
+    return comida.nombre.toLowerCase().includes(texto)
+    || comida.provincia.toLowerCase().includes(texto)
+    || comida.categoria.toLowerCase().includes(texto)
+  })
+
+  mostrarComidas(comidasFiltradas)
 }
