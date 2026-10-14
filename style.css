@@ -23,6 +23,12 @@ header {
   input {
     width: 800px;
     height: 40px;
+    border: none;
+    font-size: 1.6rem;
+    border-radius: 10px;
+  }
+  select{
+    height: 40px;
   }
 }
 
