@@ -13,6 +13,19 @@
   background-color: rgb(183, 247, 255)
 }
 
+header {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  input {
+    width: 800px;
+    height: 40px;
+  }
+}
+
 .comida-container {
   width: 100%;
   display: grid;
