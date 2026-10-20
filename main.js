@@ -56,8 +56,6 @@ formComidaNueva.addEventListener("submit", (e) =>{
   }
 
   comidas.push(nuevacomida);
-
-
   mostrarComidas(comidas);
   ingredientesContainer.innerHTML = '<input type ="text" class="ingrediente" id="ingrediente" placeholder="Un Ingrediente por Box" required>'
   console.log(comidas);
