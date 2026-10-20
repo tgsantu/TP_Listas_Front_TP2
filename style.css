@@ -25,6 +25,7 @@ header {
     height: 40px;
     border: none;
     font-size: 1.6rem;
+    padding: 5px;
     border-radius: 10px;
   }
   select{
@@ -42,7 +43,7 @@ header {
 
   .card {
     width: 17vw;
-    aspect-ratio: 3/2;
+    height: 35vh;
     background-color: rgb(227, 252, 255);
     padding: 5px;
     border-radius: 10px;

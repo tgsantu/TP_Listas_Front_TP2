@@ -40,16 +40,26 @@ const formComidaNueva = document.getElementById('agregarComida');
 formComidaNueva.addEventListener("submit", (e) =>{
   //alert('Comida nueva recibida: '+ e.target.nombre.value)
   e.preventDefault();
+
+  let listaIngredientes = []
+  const ingredientesInputs = document.querySelectorAll(".ingrediente")
+
+  ingredientesInputs.forEach (input => {
+    listaIngredientes.push(input.value.trim())
+  })
+
   let nuevacomida = {
     nombre: e.target.nombre.value,
     categoria: e.target.categoria.value,
     provincia: e.target.provincia.value,
-    ingredientes: e.target.ingredientes.value.split(",")
+    ingredientes: listaIngredientes
   }
 
   comidas.push(nuevacomida);
-  mostrarComidas(comidas);
 
+
+  mostrarComidas(comidas);
+  ingredientesContainer.innerHTML = '<input type ="text" class="ingrediente" id="ingrediente" placeholder="Un Ingrediente por Box" required>'
   console.log(comidas);
 });
 
@@ -81,3 +91,11 @@ function buscar() {
 
   mostrarComidas(comidasFiltradas)
 }
+
+const agregarIngrediente = document.getElementById("agregarIngrediente")
+const ingredientesContainer = document.querySelector(".contenedor-ingredientes")
+
+agregarIngrediente.addEventListener("click", (e) => {
+
+  ingredientesContainer.innerHTML += '<input type ="text" class="ingrediente" placeholder="Un Ingrediente por Box" required>'
+})
