@@ -100,16 +100,15 @@ agregarIngrediente.addEventListener("click", (e) => {
 })
 
 function actualizarFiltros() {
+
+  filtroCategoria.innerHTML = `<option value ="">Todas las Categorías</option>`
   let categorias = []
 
   comidas.forEach(comida => {
     if(!categorias.includes(comida.categoria)) {
       categorias.push(comida.categoria)
     }
-    
-
   })
-
   categorias.forEach(categoria => {
     filtroCategoria.innerHTML += `<option value ="${categoria}">${categoria}</option>`
   })
